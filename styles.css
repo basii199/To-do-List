@@ -41,7 +41,7 @@ body{
 .main-body{
     overflow-y: auto;
     height: 160px;
-    width: 300px;
+    width: 100%;
 }
 
 .new-to-do-button, .add-button{
@@ -93,4 +93,8 @@ body{
     display: flex;
     height: 37px;
     z-index: 1;
+}
+
+.no-display{
+    display: none;
 }
