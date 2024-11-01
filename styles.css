@@ -31,7 +31,6 @@ body{
     padding: 10px 30px;
     padding-bottom: 35px;
     width: 400px;
-    height: 200px;
     border-radius: 3px;
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -40,7 +39,8 @@ body{
 
 .main-body{
     overflow-y: auto;
-    height: 160px;
+    max-height: 500px;
+    min-height: 50px;
     width: 100%;
 }
 
