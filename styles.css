@@ -31,26 +31,45 @@ body{
     padding: 10px 30px;
     padding-bottom: 35px;
     width: 400px;
-    height: auto;
+    height: 200px;
     border-radius: 3px;
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     background-color: white;
 }
 
-.button{
+.main-body{
+    overflow-y: auto;
+    height: 160px;
+    width: 300px;
+}
+
+.new-to-do-button, .add-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(160, 103, 250);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 17px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;  
+    height: 35px;
+    box-sizing: border-box;      
+}
+
+.new-to-do-button, .input-div{
     position: absolute;
     bottom: 0;
     left: 50%;    
     transform: translate(-50%, 50%);
-    font-weight: bold;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
+}
+
+.add-button{
+    padding: 10px 13px;
+    font-size: 20px;    
 }
 
 .to-do-items{
@@ -58,6 +77,20 @@ body{
 }
 
 .input-element{
-    margin-top: 40px;
+    border: none;
+    margin-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 3px;
+    box-shadow: 0 0 7px rgba(159, 103, 250, 0.2);
+}
+
+.input-element::placeholder{
+    color: rgb(160, 103, 250);
+}
+
+.input-div{
+    display: flex;
+    height: 37px;
     z-index: 1;
 }
