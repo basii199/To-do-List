@@ -1,6 +1,4 @@
-renderEntirePage()
 
-function renderEntirePage(){
     let toDoArray = JSON.parse(localStorage.getItem('todoArray')) || []
     
     if (toDoArray.length !== 0){    
@@ -68,7 +66,6 @@ function renderEntirePage(){
 
                 toDoArray = newArray
                 saveToStorage()
-                renderEntirePage()
                 console.log(toDoArray) 
             })
             
@@ -78,4 +75,4 @@ function renderEntirePage(){
     document.querySelector('.input-div').addEventListener('blur', ()=>{
         document.querySelector('.container').classList.add('no-display')
     })
-}
+
