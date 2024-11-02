@@ -39,7 +39,7 @@ body{
 
 .main-body{
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 55vh;
     min-height: 50px;
     width: 100%;
 }

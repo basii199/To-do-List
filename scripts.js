@@ -10,7 +10,8 @@
         let checked = ''
     
         toDoArray.forEach((toDoItem, i)=>{
-            toDoItem.id = i
+            toDoItem.id = i        
+
             let html = `
                 <div class="todo-container">
                     <div class="to-do-items">
@@ -24,10 +25,17 @@
     
             `
             HTML += html
-    })
-        document.querySelector('.main-body').innerHTML = HTML
-    }
+            
+        })
 
+        const mainBody = document.querySelector('.main-body')
+
+        if (HTML !== ''){
+            mainBody.innerHTML = HTML
+        } else{
+            mainBody.innerHTML = `<p class="placeholder-text">Plan your work for today and every day, then work your plan.</p> `
+        }
+    }
     
     const inputElement = document.querySelector('.input-element')
     
@@ -39,40 +47,38 @@
     
     const addTodoSecondary = document.querySelector('.add-button')
     addTodoSecondary.addEventListener('click', ()=>{ 
+        addButton()
+    })
+
+    function addButton (){
         toDoArray.push({id: '', task: inputElement.value})
         inputElement.value = ''
         renderTasks()
         document.querySelector('.container').classList.add('no-display')
         saveToStorage()
-    })
+    }
     
     function saveToStorage(){
         localStorage.setItem('todoArray', JSON.stringify(toDoArray))
-    }
-          
-    
-    const deleteButtonArray = document.querySelectorAll('.delete-div')
-    deleteButtonArray.forEach((deleteButton)=>{
-         
-        deleteButton.addEventListener('click',()=>{
-            dataId = deleteButton.dataset.id
-    
-            console.log(dataId)
-            let newArray = []
-            toDoArray.forEach((toDoItem)=>{
-                if (dataId != toDoItem.id){
-                    newArray.push(toDoItem)
-                }
+    }        
 
-                toDoArray = newArray
-                saveToStorage()
-                console.log(toDoArray) 
-            })
-            
-        })
-    })    
-    
-    document.querySelector('.input-div').addEventListener('blur', ()=>{
-        document.querySelector('.container').classList.add('no-display')
+    document.querySelector('.main-body').addEventListener('click', (event) => {
+        if (event.target.closest('.delete-div')) {
+            const dataId = event.target.closest('.delete-div').dataset.id;
+            toDoArray = toDoArray.filter(toDoItem => toDoItem.id != dataId);
+            saveToStorage();
+            renderTasks();
+        }
+    });
+
+    inputElement.addEventListener('keydown', (event)=>{
+        if (event.key === 'Enter') {
+            addButton()
+          }
     })
 
+    document.querySelector('.input-element').addEventListener('blur', ()=>{
+        setTimeout(() => {
+            document.querySelector('.container').classList.add('no-display');
+        }, 200);
+    })
