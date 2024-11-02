@@ -4,16 +4,16 @@ addTodo.addEventListener('click', ()=>{
     document.querySelector('.input-element').focus()
 })
 
-let toDoArray = [
+let toDoArray = JSON.parse(localStorage.getItem('todoArray')) || [
     /* {id: '', task: 'task 1'},
     {id: '', task: 'task 2'},
     {id: '', task: 'task 3'},
     {id: '', task: 'task 4'} */
 ]
 
-
-
-renderTasks()
+if (toDoArray.length !== 0){    
+    renderTasks()
+}
 function renderTasks(){
     let HTML = ''
     let checked = ''
@@ -36,8 +36,8 @@ const addTodoSecondary = document.querySelector('.add-button')
 addTodoSecondary.addEventListener('click', ()=>{ 
     let todoItem = document.querySelector('.input-element') 
     toDoArray.push({id: '', task: todoItem.value})
-    console.log(toDoArray)
     todoItem.value = ''
     renderTasks()
     document.querySelector('.container').classList.add('no-display')
+    localStorage.setItem('todoArray', JSON.stringify(toDoArray))
 })
