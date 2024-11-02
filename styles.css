@@ -46,6 +46,7 @@ body{
 
 .placeholder-text{
     color: rgba(0, 0, 0, 0.3);
+    font-family: helvetica;
 }
 
 .new-to-do-button, .add-button{
@@ -71,13 +72,26 @@ body{
     transform: translate(-50%, 50%);
 }
 
+.delete-button{
+    width: 18px;
+}
+
+.delete-div{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;    
+    cursor: pointer;
+}
+
+.todo-container{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-button{
     padding: 10px 13px;
     font-size: 20px;    
-}
-
-.to-do-items{
-    margin-top: 10px;
 }
 
 .input-element{
