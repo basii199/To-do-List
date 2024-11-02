@@ -82,3 +82,4 @@
             document.querySelector('.container').classList.add('no-display');
         }, 200);
     })
+    
